@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SCAPILogin.h"
+#import "ANLoginVC.h"
 
-@interface ANAppDelegate : UIResponder <UIApplicationDelegate, SCAPILoginDelegate> {
-    SCAPILogin * login;
+@interface ANAppDelegate : UIResponder <UIApplicationDelegate> {
+    UINavigationController * navCont;
 }
 
-@property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) UIWindow * window;
 
 @end

@@ -16,14 +16,21 @@
         self.timestamp = [dictionary[@"ts"] longLongValue];
         self.status = [dictionary[@"st"] longLongValue];
         self.identifier = dictionary[@"id"];
+        self.media = [dictionary[@"m"] longLongValue];
+        self.tField = [dictionary[@"t"] longLongValue];
     }
     return self;
 }
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"<%@ user=%@, timestamp=%llu, status=%llu, identifier=%@>",
+    return [NSString stringWithFormat:@"<%@ user=%@, timestamp=%llu, status=%llu, identifier=%@, media=%llu, t=%llu>",
             NSStringFromClass(self.class), self.user, self.timestamp,
-            self.status, self.identifier];
+            self.status, self.identifier, self.media, self.tField];
+}
+
+- (BOOL)isEqual:(id)object {
+    if (![object isKindOfClass:[SCSnap class]]) return NO;
+    return [[((SCSnap *)object) identifier] isEqualToString:self.identifier];
 }
 
 @end

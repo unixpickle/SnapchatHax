@@ -14,9 +14,13 @@
     if (data.length < 2) return nil;
     if (((const char *)data.bytes)[0] != 0 || ((const char *)data.bytes)[1] != 0) return nil;
     if ((self = [super init])) {
-        self.videoData = data;
+        self.blobData = data;
     }
     return self;
+}
+
+- (NSString *)blobFileExtension {
+    return @"mp4";
 }
 
 @end

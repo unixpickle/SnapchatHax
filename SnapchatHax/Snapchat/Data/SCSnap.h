@@ -8,11 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
+typedef enum {
+    SCSnapTypeImage = 0,
+    SCSnapTypeVideo = 1
+} SCSnapType;
+
 @interface SCSnap : NSObject
 
 @property (readwrite) unsigned long long status;
 @property (readwrite) unsigned long long timestamp;
 @property (readwrite) unsigned long long media;
+@property (readwrite) unsigned long long tField;
 @property (nonatomic) NSString * identifier;
 @property (nonatomic) NSString * user;
 

@@ -14,12 +14,14 @@
     SCFetcher * fetcher = [[SCFetcher alloc] initWithRequest:req];
     fetcher.callback = block;
     fetcher.parseJSON = YES;
+    [fetcher start];
     return fetcher;
 }
 
 + (SCFetcher *)fetcherStartedForRequestNoJSON:(NSURLRequest *)req callback:(SCFetcherBlock)block {
     SCFetcher * fetcher = [[SCFetcher alloc] initWithRequest:req];
     fetcher.callback = block;
+    [fetcher start];
     return fetcher;
 }
 
@@ -32,18 +34,21 @@
 
 - (void)start {
     data = [NSMutableData data];
+    [connection start];
 }
 
 - (void)cancel {
     data = nil;
     [connection cancel];
     connection = nil;
+    self.callback = nil;
 }
 
 #pragma mark - NSURLConnection -
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
     self.callback(error, nil);
+    self.callback = nil;
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)_data {
@@ -57,13 +62,16 @@
         NSDictionary * dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
         data = nil;
         if (![dict isKindOfClass:[NSDictionary class]]) {
-            return self.callback(error, nil);
+            self.callback(error, nil);
+            self.callback = nil;
+            return;
         }
         self.callback(nil, dict);
     } else {
         self.callback(nil, [data copy]);
         data = nil;
     }
+    self.callback = nil;
 }
 
 @end

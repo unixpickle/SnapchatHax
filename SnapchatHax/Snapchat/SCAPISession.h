@@ -21,8 +21,13 @@
 @property (nonatomic, retain) NSString * username;
 @property (nonatomic, retain) NSArray * snaps;
 
++ (NSArray *)parseSnaps:(NSArray *)jsonSnaps;
+
 - (SCAPIRequest *)requestForBlob:(NSString *)blobIdentifier;
 - (SCFetcher *)fetchBlob:(NSString *)blobIdentifier
                 callback:(void (^)(NSError * error, SCBlob * blob))cb;
+- (SCFetcher *)reloadAll:(void (^)(NSError * error))callback;
+
+- (NSArray *)mediaSnaps;
 
 @end

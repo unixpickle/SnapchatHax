@@ -25,4 +25,8 @@
     return nil;
 }
 
+- (NSString *)blobFileExtension {
+    return @"txt";
+}
+
 @end

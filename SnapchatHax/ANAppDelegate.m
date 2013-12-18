@@ -14,19 +14,15 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
+
+    ANLoginVC * login = [[ANLoginVC alloc] init];
+    navCont = [[UINavigationController alloc] init];
+    [navCont pushViewController:login animated:NO];
+    self.window.rootViewController = navCont;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
     return YES;
-}
-
-- (void)scAPILogin:(id)sender succeededWithSession:(SCAPISession *)session {
-    NSLog(@"session %@", session);
-}
-
-- (void)scAPILogin:(id)sender failedWithError:(NSError *)error {
-    NSLog(@"error %@", error);
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

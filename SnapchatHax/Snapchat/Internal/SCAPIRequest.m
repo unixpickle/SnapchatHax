@@ -12,7 +12,6 @@
 
 + (NSString *)timestampString {
     NSTimeInterval time = [NSDate date].timeIntervalSince1970;
-    NSLog(@"bigTime %lf", (double)(time * 1000.0));
     return [NSString stringWithFormat:@"%llu", (unsigned long long)round(time * 1000.0)];
 }
 
@@ -46,7 +45,7 @@
                       token:(NSString *)token
                  dictionary:(NSDictionary *)dict {
     if ((self = [super init])) {
-        [self setURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/%@", enc.baseURL, path]]];
+        [self setURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", enc.baseURL, path]]];
         [self setHTTPMethod:@"POST"];
         NSMutableDictionary * jsonBody = [dict mutableCopy];
         NSString * timestamp = self.class.timestampString;

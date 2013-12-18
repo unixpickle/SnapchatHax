@@ -29,6 +29,12 @@
 		FAF75F021861308C006C7D11 /* SCBlob.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF75F011861308C006C7D11 /* SCBlob.m */; };
 		FAF75F051861311F006C7D11 /* SCImageBlob.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF75F041861311F006C7D11 /* SCImageBlob.m */; };
 		FAF75F0818613131006C7D11 /* SCVideoBlob.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF75F0718613131006C7D11 /* SCVideoBlob.m */; };
+		FAF75F0D186241DA006C7D11 /* ANLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF75F0C186241DA006C7D11 /* ANLoginVC.m */; };
+		FAF75F10186241F1006C7D11 /* ANSnapsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF75F0F186241F1006C7D11 /* ANSnapsVC.m */; };
+		FAF75F1218624836006C7D11 /* ANLoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF75F1118624836006C7D11 /* ANLoginVC.xib */; };
+		FAF75F1818625274006C7D11 /* SCSnapManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF75F1718625274006C7D11 /* SCSnapManager.m */; };
+		FAF75F1C1862591E006C7D11 /* ANSnapVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF75F1A1862591E006C7D11 /* ANSnapVC.m */; };
+		FAF75F1D1862591E006C7D11 /* ANSnapVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF75F1B1862591E006C7D11 /* ANSnapVC.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +83,16 @@
 		FAF75F041861311F006C7D11 /* SCImageBlob.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCImageBlob.m; sourceTree = "<group>"; };
 		FAF75F0618613131006C7D11 /* SCVideoBlob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCVideoBlob.h; sourceTree = "<group>"; };
 		FAF75F0718613131006C7D11 /* SCVideoBlob.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCVideoBlob.m; sourceTree = "<group>"; };
+		FAF75F0B186241DA006C7D11 /* ANLoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANLoginVC.h; sourceTree = "<group>"; };
+		FAF75F0C186241DA006C7D11 /* ANLoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANLoginVC.m; sourceTree = "<group>"; };
+		FAF75F0E186241F1006C7D11 /* ANSnapsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANSnapsVC.h; sourceTree = "<group>"; };
+		FAF75F0F186241F1006C7D11 /* ANSnapsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANSnapsVC.m; sourceTree = "<group>"; };
+		FAF75F1118624836006C7D11 /* ANLoginVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ANLoginVC.xib; sourceTree = "<group>"; };
+		FAF75F1618625274006C7D11 /* SCSnapManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCSnapManager.h; sourceTree = "<group>"; };
+		FAF75F1718625274006C7D11 /* SCSnapManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCSnapManager.m; sourceTree = "<group>"; };
+		FAF75F191862591E006C7D11 /* ANSnapVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANSnapVC.h; sourceTree = "<group>"; };
+		FAF75F1A1862591E006C7D11 /* ANSnapVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANSnapVC.m; sourceTree = "<group>"; };
+		FAF75F1B1862591E006C7D11 /* ANSnapVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ANSnapVC.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,8 +157,16 @@
 				FAF75EEB1861205F006C7D11 /* Snapchat */,
 				FAF75EBC1860F9CC006C7D11 /* ANAppDelegate.h */,
 				FAF75EBD1860F9CC006C7D11 /* ANAppDelegate.m */,
+				FAF75F0B186241DA006C7D11 /* ANLoginVC.h */,
+				FAF75F0C186241DA006C7D11 /* ANLoginVC.m */,
+				FAF75F1118624836006C7D11 /* ANLoginVC.xib */,
 				FAF75EBF1860F9CC006C7D11 /* Images.xcassets */,
 				FAF75EB41860F9CC006C7D11 /* Supporting Files */,
+				FAF75F0E186241F1006C7D11 /* ANSnapsVC.h */,
+				FAF75F0F186241F1006C7D11 /* ANSnapsVC.m */,
+				FAF75F191862591E006C7D11 /* ANSnapVC.h */,
+				FAF75F1A1862591E006C7D11 /* ANSnapVC.m */,
+				FAF75F1B1862591E006C7D11 /* ANSnapVC.xib */,
 			);
 			path = SnapchatHax;
 			sourceTree = "<group>";
@@ -179,6 +203,7 @@
 		FAF75EEB1861205F006C7D11 /* Snapchat */ = {
 			isa = PBXGroup;
 			children = (
+				FAF75F151862526C006C7D11 /* Managing */,
 				FAF75EEC1861205F006C7D11 /* Data */,
 				FAF75EED1861205F006C7D11 /* Internal */,
 				FAF75EF21861205F006C7D11 /* SCAPILogin.h */,
@@ -215,6 +240,15 @@
 				FAF75EF11861205F006C7D11 /* SCAPIRequest.m */,
 			);
 			path = Internal;
+			sourceTree = "<group>";
+		};
+		FAF75F151862526C006C7D11 /* Managing */ = {
+			isa = PBXGroup;
+			children = (
+				FAF75F1618625274006C7D11 /* SCSnapManager.h */,
+				FAF75F1718625274006C7D11 /* SCSnapManager.m */,
+			);
+			path = Managing;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,6 +329,8 @@
 			files = (
 				FAF75EB81860F9CC006C7D11 /* InfoPlist.strings in Resources */,
 				FAF75EC01860F9CC006C7D11 /* Images.xcassets in Resources */,
+				FAF75F1218624836006C7D11 /* ANLoginVC.xib in Resources */,
+				FAF75F1D1862591E006C7D11 /* ANSnapVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,11 +353,15 @@
 				FAF75EBA1860F9CC006C7D11 /* main.m in Sources */,
 				FAF75EFC18612069006C7D11 /* SCSnap.m in Sources */,
 				FAF75EBE1860F9CC006C7D11 /* ANAppDelegate.m in Sources */,
+				FAF75F10186241F1006C7D11 /* ANSnapsVC.m in Sources */,
 				FAF75EF81861205F006C7D11 /* SCAPILogin.m in Sources */,
 				FAF75EF71861205F006C7D11 /* SCAPIRequest.m in Sources */,
 				FAF75EFF18612E91006C7D11 /* SCFetcher.m in Sources */,
+				FAF75F0D186241DA006C7D11 /* ANLoginVC.m in Sources */,
 				FAF75EF61861205F006C7D11 /* SCAPIConfiguration.m in Sources */,
+				FAF75F1C1862591E006C7D11 /* ANSnapVC.m in Sources */,
 				FAF75F051861311F006C7D11 /* SCImageBlob.m in Sources */,
+				FAF75F1818625274006C7D11 /* SCSnapManager.m in Sources */,
 				FAF75EF91861205F006C7D11 /* SCAPISession.m in Sources */,
 				FAF75F0818613131006C7D11 /* SCVideoBlob.m in Sources */,
 			);

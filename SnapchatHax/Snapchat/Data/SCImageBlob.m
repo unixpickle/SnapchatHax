@@ -15,9 +15,13 @@
     if (((const unsigned char *)data.bytes)[0] != 0xff ||
         ((const unsigned char *)data.bytes)[1] != 0xd8) return nil;
     if ((self = [super init])) {
-        self.imageData = data;
+        self.blobData = data;
     }
     return self;
+}
+
+- (NSString *)blobFileExtension {
+    return @"jpg";
 }
 
 @end

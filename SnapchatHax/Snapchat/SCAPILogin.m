@@ -8,12 +8,6 @@
 
 #import "SCAPILogin.h"
 
-@interface SCAPILogin (Private)
-
-- (NSArray *)getSnaps:(NSDictionary *)initial;
-
-@end
-
 @implementation SCAPILogin
 
 - (id)init {
@@ -70,19 +64,9 @@
     SCAPISession * session = [[SCAPISession alloc] init];
     session.authToken = dict[@"auth_token"];
     session.configuration = self.configuration;
-    session.snaps = [self getSnaps:dict];
+    session.snaps = [SCAPISession parseSnaps:dict[@"snaps"]];
     session.username = self.username;
     [self.delegate scAPILogin:self succeededWithSession:session];
-}
-
-#pragma mark - Private -
-
-- (NSArray *)getSnaps:(NSDictionary *)initial {
-    NSMutableArray * snaps = [[NSMutableArray alloc] init];
-    for (NSDictionary * snap in initial[@"snaps"]) {
-        [snaps addObject:[[SCSnap alloc] initWithDictionary:snap]];
-    }
-    return snaps;
 }
 
 @end

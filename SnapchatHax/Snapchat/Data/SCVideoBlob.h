@@ -10,6 +10,4 @@
 
 @interface SCVideoBlob : SCBlob
 
-@property (nonatomic, retain) NSData * videoData;
-
 @end

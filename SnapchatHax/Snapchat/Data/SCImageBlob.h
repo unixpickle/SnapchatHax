@@ -10,6 +10,4 @@
 
 @interface SCImageBlob : SCBlob
 
-@property (nonatomic, retain) NSData * imageData;
-
 @end

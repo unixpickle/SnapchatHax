@@ -10,7 +10,11 @@
 
 @interface SCBlob : NSObject
 
+@property (nonatomic, retain) NSData * blobData;
+
 + (SCBlob *)blobWithData:(NSData *)data;
 - (id)initWithData:(NSData *)data;
+
+- (NSString *)blobFileExtension;
 
 @end
