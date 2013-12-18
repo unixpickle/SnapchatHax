@@ -23,4 +23,17 @@
                                             dictionary:params];
 }
 
+- (SCFetcher *)fetchBlob:(NSString *)blobIdentifier
+                callback:(void (^)(NSError * error, SCBlob * blob))cb {
+    NSURLRequest * req = [self requestForBlob:blobIdentifier];
+    return [SCFetcher fetcherStartedForRequestNoJSON:req callback:^(NSError * error, id result) {
+        if (error) return cb(error, nil);
+        SCBlob * blob = [SCBlob blobWithData:result];
+        if (!blob) return cb([NSError errorWithDomain:@"SCBlob"
+                                                 code:1
+                                             userInfo:@{NSLocalizedDescriptionKey: @"Unknown blob type."}], nil);
+        cb(nil, blob);
+    }];
+}
+
 @end

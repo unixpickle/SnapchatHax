@@ -7,9 +7,14 @@
 //
 
 #import "SCAPIRequest.h"
-#import "SCSnap.h"
+#import "SCFetcher.h"
 
-@interface SCAPISession : NSObject
+#import "SCSnap.h"
+#import "SCBlob.h"
+
+@interface SCAPISession : NSObject {
+    
+}
 
 @property (nonatomic, retain) SCAPIConfiguration * configuration;
 @property (nonatomic, retain) NSString * authToken;
@@ -17,5 +22,7 @@
 @property (nonatomic, retain) NSArray * snaps;
 
 - (SCAPIRequest *)requestForBlob:(NSString *)blobIdentifier;
+- (SCFetcher *)fetchBlob:(NSString *)blobIdentifier
+                callback:(void (^)(NSError * error, SCBlob * blob))cb;
 
 @end
