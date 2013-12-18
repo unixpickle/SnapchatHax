@@ -19,6 +19,13 @@
 		FAF75EC91860F9CC006C7D11 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAF75EB11860F9CC006C7D11 /* UIKit.framework */; };
 		FAF75ED11860F9CC006C7D11 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FAF75ECF1860F9CC006C7D11 /* InfoPlist.strings */; };
 		FAF75ED31860F9CC006C7D11 /* SnapchatHaxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF75ED21860F9CC006C7D11 /* SnapchatHaxTests.m */; };
+		FAF75EE118610DAE006C7D11 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAF75EE018610DAE006C7D11 /* Security.framework */; };
+		FAF75EF61861205F006C7D11 /* SCAPIConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF75EEF1861205F006C7D11 /* SCAPIConfiguration.m */; };
+		FAF75EF71861205F006C7D11 /* SCAPIRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF75EF11861205F006C7D11 /* SCAPIRequest.m */; };
+		FAF75EF81861205F006C7D11 /* SCAPILogin.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF75EF31861205F006C7D11 /* SCAPILogin.m */; };
+		FAF75EF91861205F006C7D11 /* SCAPISession.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF75EF51861205F006C7D11 /* SCAPISession.m */; };
+		FAF75EFC18612069006C7D11 /* SCSnap.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF75EFB18612069006C7D11 /* SCSnap.m */; };
+		FAF75EFF18612E91006C7D11 /* SCFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF75EFE18612E91006C7D11 /* SCFetcher.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +55,19 @@
 		FAF75ECE1860F9CC006C7D11 /* SnapchatHaxTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SnapchatHaxTests-Info.plist"; sourceTree = "<group>"; };
 		FAF75ED01860F9CC006C7D11 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FAF75ED21860F9CC006C7D11 /* SnapchatHaxTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SnapchatHaxTests.m; sourceTree = "<group>"; };
+		FAF75EE018610DAE006C7D11 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		FAF75EEE1861205F006C7D11 /* SCAPIConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCAPIConfiguration.h; sourceTree = "<group>"; };
+		FAF75EEF1861205F006C7D11 /* SCAPIConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCAPIConfiguration.m; sourceTree = "<group>"; };
+		FAF75EF01861205F006C7D11 /* SCAPIRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCAPIRequest.h; sourceTree = "<group>"; };
+		FAF75EF11861205F006C7D11 /* SCAPIRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCAPIRequest.m; sourceTree = "<group>"; };
+		FAF75EF21861205F006C7D11 /* SCAPILogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCAPILogin.h; sourceTree = "<group>"; };
+		FAF75EF31861205F006C7D11 /* SCAPILogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCAPILogin.m; sourceTree = "<group>"; };
+		FAF75EF41861205F006C7D11 /* SCAPISession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCAPISession.h; sourceTree = "<group>"; };
+		FAF75EF51861205F006C7D11 /* SCAPISession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCAPISession.m; sourceTree = "<group>"; };
+		FAF75EFA18612069006C7D11 /* SCSnap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCSnap.h; sourceTree = "<group>"; };
+		FAF75EFB18612069006C7D11 /* SCSnap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCSnap.m; sourceTree = "<group>"; };
+		FAF75EFD18612E91006C7D11 /* SCFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCFetcher.h; sourceTree = "<group>"; };
+		FAF75EFE18612E91006C7D11 /* SCFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCFetcher.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAF75EE118610DAE006C7D11 /* Security.framework in Frameworks */,
 				FAF75EB01860F9CC006C7D11 /* CoreGraphics.framework in Frameworks */,
 				FAF75EB21860F9CC006C7D11 /* UIKit.framework in Frameworks */,
 				FAF75EAE1860F9CC006C7D11 /* Foundation.framework in Frameworks */,
@@ -96,6 +117,7 @@
 		FAF75EAC1860F9CC006C7D11 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FAF75EE018610DAE006C7D11 /* Security.framework */,
 				FAF75EAD1860F9CC006C7D11 /* Foundation.framework */,
 				FAF75EAF1860F9CC006C7D11 /* CoreGraphics.framework */,
 				FAF75EB11860F9CC006C7D11 /* UIKit.framework */,
@@ -107,6 +129,7 @@
 		FAF75EB31860F9CC006C7D11 /* SnapchatHax */ = {
 			isa = PBXGroup;
 			children = (
+				FAF75EEB1861205F006C7D11 /* Snapchat */,
 				FAF75EBC1860F9CC006C7D11 /* ANAppDelegate.h */,
 				FAF75EBD1860F9CC006C7D11 /* ANAppDelegate.m */,
 				FAF75EBF1860F9CC006C7D11 /* Images.xcassets */,
@@ -142,6 +165,41 @@
 				FAF75ECF1860F9CC006C7D11 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FAF75EEB1861205F006C7D11 /* Snapchat */ = {
+			isa = PBXGroup;
+			children = (
+				FAF75EEC1861205F006C7D11 /* Data */,
+				FAF75EED1861205F006C7D11 /* Internal */,
+				FAF75EF21861205F006C7D11 /* SCAPILogin.h */,
+				FAF75EF31861205F006C7D11 /* SCAPILogin.m */,
+				FAF75EF41861205F006C7D11 /* SCAPISession.h */,
+				FAF75EF51861205F006C7D11 /* SCAPISession.m */,
+				FAF75EFD18612E91006C7D11 /* SCFetcher.h */,
+				FAF75EFE18612E91006C7D11 /* SCFetcher.m */,
+			);
+			path = Snapchat;
+			sourceTree = "<group>";
+		};
+		FAF75EEC1861205F006C7D11 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				FAF75EFA18612069006C7D11 /* SCSnap.h */,
+				FAF75EFB18612069006C7D11 /* SCSnap.m */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		FAF75EED1861205F006C7D11 /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+				FAF75EEE1861205F006C7D11 /* SCAPIConfiguration.h */,
+				FAF75EEF1861205F006C7D11 /* SCAPIConfiguration.m */,
+				FAF75EF01861205F006C7D11 /* SCAPIRequest.h */,
+				FAF75EF11861205F006C7D11 /* SCAPIRequest.m */,
+			);
+			path = Internal;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,7 +299,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAF75EBA1860F9CC006C7D11 /* main.m in Sources */,
+				FAF75EFC18612069006C7D11 /* SCSnap.m in Sources */,
 				FAF75EBE1860F9CC006C7D11 /* ANAppDelegate.m in Sources */,
+				FAF75EF81861205F006C7D11 /* SCAPILogin.m in Sources */,
+				FAF75EF71861205F006C7D11 /* SCAPIRequest.m in Sources */,
+				FAF75EFF18612E91006C7D11 /* SCFetcher.m in Sources */,
+				FAF75EF61861205F006C7D11 /* SCAPIConfiguration.m in Sources */,
+				FAF75EF91861205F006C7D11 /* SCAPISession.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

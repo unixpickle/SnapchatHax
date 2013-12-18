@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SCAPILogin.h"
 
-@interface ANAppDelegate : UIResponder <UIApplicationDelegate>
+@interface ANAppDelegate : UIResponder <UIApplicationDelegate, SCAPILoginDelegate> {
+    SCAPILogin * login;
+}
 
 @property (strong, nonatomic) UIWindow *window;
 

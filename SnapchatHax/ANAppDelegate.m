@@ -7,6 +7,7 @@
 //
 
 #import "ANAppDelegate.h"
+#import "SCAPIConfiguration.h"
 
 @implementation ANAppDelegate
 
@@ -16,7 +17,16 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
     return YES;
+}
+
+- (void)scAPILogin:(id)sender succeededWithSession:(SCAPISession *)session {
+    NSLog(@"session %@", session);
+}
+
+- (void)scAPILogin:(id)sender failedWithError:(NSError *)error {
+    NSLog(@"error %@", error);
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
