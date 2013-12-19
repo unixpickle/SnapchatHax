@@ -111,8 +111,13 @@
 
 #pragma mark - SCSnapManager -
 
-- (void)scSnapManagerUpdated:(id)sender {
-    [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:(snaps.snaps.count - 1) inSection:0]]
+- (void)scSnapManager:(id)sender insertedAtIndex:(NSInteger)index {
+    [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:(index) inSection:0]]
+                          withRowAnimation:UITableViewRowAnimationAutomatic];
+}
+
+- (void)scSnapManager:(id)sender deletedAtIndex:(NSInteger)index {
+    [self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:(index) inSection:0]]
                           withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 

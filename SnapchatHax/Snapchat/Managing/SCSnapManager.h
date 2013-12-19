@@ -11,7 +11,8 @@
 
 @protocol SCSnapManagerDelegate <NSObject>
 
-- (void)scSnapManagerUpdated:(id)sender;
+- (void)scSnapManager:(id)sender insertedAtIndex:(NSInteger)index;
+- (void)scSnapManager:(id)sender deletedAtIndex:(NSInteger)index;
 - (void)scSnapManagerFinishedLoading:(id)sender;
 - (void)scSnapManager:(id)sender failedWithError:(NSError *)e;
 

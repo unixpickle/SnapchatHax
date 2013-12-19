@@ -31,6 +31,15 @@
 }
 
 - (void)startFetchingBlobs:(SCAPISession *)session {
+    // remove snaps
+    for (int i = 0; i < self.snaps.count; i++) {
+        SCSnap * s = self.snaps[i];
+        if (![session.snaps containsObject:s]) {
+            [self.snaps removeObject:s];
+            [self.delegate scSnapManager:self deletedAtIndex:i];
+            i--;
+        }
+    }
     for (SCSnap * s in session.mediaSnaps) {
         __weak SCSnapManager * weakSelf = self;
         __block SCFetcher * f = [session fetchBlob:s.identifier callback:^(NSError * error, SCBlob * blob) {
@@ -43,7 +52,17 @@
                                          cost:blob.blobData.length];
                     if (![weakSelf.snaps containsObject:s]) {
                         [weakSelf.snaps addObject:s];
-                        [weakSelf.delegate scSnapManagerUpdated:weakSelf];
+                        
+                        // sort it by date
+                        [weakSelf.snaps sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+                            SCSnap * s1 = obj1, * s2 = obj2;
+                            if (s1.timestamp < s2.timestamp) return NSOrderedAscending;
+                            if (s1.timestamp > s2.timestamp) return NSOrderedDescending;
+                            return NSOrderedSame;
+                        }];
+                        
+                        [weakSelf.delegate scSnapManager:weakSelf
+                                         insertedAtIndex:[weakSelf.snaps indexOfObject:s]];
                     }
                 }
                 if (!fetchers.count) {
