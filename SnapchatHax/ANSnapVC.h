@@ -19,7 +19,7 @@
     NSString * tempFile;
     
     IBOutlet UIActivityIndicatorView * loader;
-    IBOutlet UIButton * viewButton;
+    IBOutlet UIView * buttonsView;
     SCFetcher * fetcher;
     
     UIDocumentInteractionController * currentDocument;
@@ -27,12 +27,17 @@
 
 @property (nonatomic, retain) SCSnap * snap;
 @property (nonatomic, retain) SCBlob * blob;
+@property (nonatomic, retain) SCAPISession * session;
 
 - (IBAction)viewPressed:(id)sender;
+- (IBAction)markScreenshotPressed:(id)sender;
+- (IBAction)markAsReadPressed:(id)sender;
+
+- (void)setLoading:(BOOL)flag;
 
 - (id)initWithSnap:(SCSnap *)snap;
 - (id)initWithSnap:(SCSnap *)snap session:(SCAPISession *)session;
-- (id)initWithSnap:(SCSnap *)snap blob:(SCBlob *)blob;
+- (id)initWithSnap:(SCSnap *)snap blob:(SCBlob *)blob session:(SCAPISession *)session;
 - (void)handleBlobLoaded;
 
 @end

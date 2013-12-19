@@ -32,15 +32,16 @@
 
 - (void)startFetchingBlobs:(SCAPISession *)session {
     // remove snaps
+    NSArray * mediaSnaps = session.mediaSnaps;
     for (int i = 0; i < self.snaps.count; i++) {
         SCSnap * s = self.snaps[i];
-        if (![session.snaps containsObject:s]) {
+        if (![mediaSnaps containsObject:s]) {
             [self.snaps removeObject:s];
             [self.delegate scSnapManager:self deletedAtIndex:i];
             i--;
         }
     }
-    for (SCSnap * s in session.mediaSnaps) {
+    for (SCSnap * s in mediaSnaps) {
         __weak SCSnapManager * weakSelf = self;
         __block SCFetcher * f = [session fetchBlob:s.identifier callback:^(NSError * error, SCBlob * blob) {
             [fetchers removeObject:f];
@@ -63,6 +64,12 @@
                         
                         [weakSelf.delegate scSnapManager:weakSelf
                                          insertedAtIndex:[weakSelf.snaps indexOfObject:s]];
+                    }
+                } else {
+                    if ([weakSelf.snaps containsObject:s]) {
+                        NSInteger index = [weakSelf.snaps indexOfObject:s];
+                        [weakSelf.snaps removeObject:s];
+                        [weakSelf.delegate scSnapManager:self deletedAtIndex:index];
                     }
                 }
                 if (!fetchers.count) {

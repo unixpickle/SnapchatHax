@@ -22,6 +22,12 @@
     return self;
 }
 
+- (BOOL)isImageOrVideo {
+    return (self.media < 7 && self.media != 3);
+}
+
+#pragma mark - Obj-C Overrides -
+
 - (NSString *)description {
     return [NSString stringWithFormat:@"<%@ user=%@, timestamp=%llu, status=%llu, identifier=%@, media=%llu, t=%llu>",
             NSStringFromClass(self.class), self.user, self.timestamp,

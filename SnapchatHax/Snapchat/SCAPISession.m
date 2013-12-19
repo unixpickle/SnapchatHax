@@ -22,6 +22,8 @@
     return [NSString stringWithFormat:@"<%@ authToken=%@, snaps=%@>", NSStringFromClass(self.class), self.authToken, self.snaps];
 }
 
+#pragma mark - Blobs -
+
 - (SCAPIRequest *)requestForBlob:(NSString *)blobIdentifier {
     NSDictionary * params = @{@"username": self.username,
                               @"id": blobIdentifier};
@@ -49,6 +51,48 @@
     }];
 }
 
+#pragma mark - Events -
+
+- (SCAPIRequest *)requestForSendingEvents:(NSArray *)list snapInfo:(NSDictionary *)info {
+    NSData * jsonData = [NSJSONSerialization dataWithJSONObject:info options:0 error:nil];
+    NSData * eventsData = [NSJSONSerialization dataWithJSONObject:list options:0 error:nil];
+    NSDictionary * req = @{@"username": self.username,
+                           @"json": [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding],
+                           @"events": [[NSString alloc] initWithData:eventsData encoding:NSUTF8StringEncoding]};
+    return [[SCAPIRequest alloc] initWithConfiguration:self.configuration
+                                                  path:@"/bq/update_snaps"
+                                                 token:self.authToken
+                                            dictionary:req];
+}
+
+- (SCFetcher *)markSnapViewed:(NSString *)blobId time:(NSTimeInterval)delay callback:(void (^)(NSError * error))cb {
+    NSTimeInterval ts = [[NSDate date] timeIntervalSince1970];
+    NSDictionary * timeInfo = @{@"t": @(ts),
+                                @"sv": @(delay)};
+    NSDictionary * snapInfo = @{blobId: timeInfo};
+    NSArray * events = @[@{@"eventName": @"SNAP_VIEW", @"params": @{@"id": blobId}, @"ts": @(ts - delay)},
+                         @{@"eventName": @"SNAP_EXPIRED", @"params": @{@"id": blobId}, @"ts": @(ts)}];
+    return [SCFetcher fetcherStartedForRequestNoJSON:[self requestForSendingEvents:events snapInfo:snapInfo]
+                                      callback:^(NSError * error, id result) {
+                                          cb(error);
+                                      }];
+}
+
+- (SCFetcher *)markSnapScreenshot:(NSString *)blobId time:(NSTimeInterval)delay callback:(void (^)(NSError * error))cb {
+    NSTimeInterval ts = [[NSDate date] timeIntervalSince1970];
+    NSDictionary * timeInfo = @{@"t": @(ts),
+                                @"sv": @(delay),
+                                @"c": @(3)};
+    NSDictionary * snapInfo = @{blobId: timeInfo};
+    NSArray * events = @[@{@"eventName": @"SNAP_SCREENSHOT", @"params": @{@"id": blobId}, @"ts": @(ts - delay)}];
+    return [SCFetcher fetcherStartedForRequestNoJSON:[self requestForSendingEvents:events snapInfo:snapInfo]
+                                      callback:^(NSError * error, id result) {
+                                          cb(error);
+                                      }];
+}
+
+#pragma mark - Extra -
+
 - (SCFetcher *)reloadAll:(void (^)(NSError * error))callback {
     NSDictionary * reqArgs = @{@"username": self.username};
     NSURLRequest * req = [[SCAPIRequest alloc] initWithConfiguration:self.configuration
@@ -71,7 +115,7 @@
     NSMutableArray * snaps = [NSMutableArray array];
     
     for (SCSnap * snap in self.snaps) {
-        if (snap.media == SCSnapTypeImage || snap.media == SCSnapTypeVideo) {
+        if ([snap isImageOrVideo]) {
             [snaps addObject:snap];
         }
     }

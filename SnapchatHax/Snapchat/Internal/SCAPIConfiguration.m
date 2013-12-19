@@ -169,7 +169,7 @@ static NSString * hexHash(NSData * input);
 
 static NSString * hexHash(NSData * input) {
     unsigned char output[CC_SHA256_DIGEST_LENGTH];
-    CC_SHA256(input.bytes, input.length, output);
+    CC_SHA256(input.bytes, (unsigned int)input.length, output);
     NSMutableString * str = [NSMutableString string];
     for (int i = 0; i < CC_SHA256_DIGEST_LENGTH; i++) {
         [str appendFormat:@"%02x", output[i]];

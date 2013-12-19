@@ -26,6 +26,14 @@
 - (SCAPIRequest *)requestForBlob:(NSString *)blobIdentifier;
 - (SCFetcher *)fetchBlob:(NSString *)blobIdentifier
                 callback:(void (^)(NSError * error, SCBlob * blob))cb;
+
+- (SCAPIRequest *)requestForSendingEvents:(NSArray *)list snapInfo:(NSDictionary *)info;
+- (SCFetcher *)markSnapViewed:(NSString *)blobId time:(NSTimeInterval)delay callback:(void (^)(NSError * error))cb;
+- (SCFetcher *)markSnapScreenshot:(NSString *)blobId time:(NSTimeInterval)delay callback:(void (^)(NSError * error))cb;
+
+/**
+ * Asynchronously reload the snaps and authToken.
+ */
 - (SCFetcher *)reloadAll:(void (^)(NSError * error))callback;
 
 - (NSArray *)mediaSnaps;

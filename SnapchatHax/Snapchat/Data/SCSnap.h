@@ -10,7 +10,9 @@
 
 typedef enum {
     SCSnapTypeImage = 0,
-    SCSnapTypeVideo = 1
+    SCSnapTypeVideo = 1,
+    SCSnapTypeSilentVideo = 2,
+    SCSnapTypeFriendFlag = 4
 } SCSnapType;
 
 @interface SCSnap : NSObject
@@ -23,5 +25,6 @@ typedef enum {
 @property (nonatomic) NSString * user;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
+- (BOOL)isImageOrVideo;
 
 @end

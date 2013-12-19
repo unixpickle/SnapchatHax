@@ -104,7 +104,7 @@
     SCSnap * snap = snaps.snaps[indexPath.row];
     SCBlob * blob = [snaps.blobs objectForKey:snap.identifier];
     ANSnapVC * vc = nil;
-    if (blob) vc = [[ANSnapVC alloc] initWithSnap:snap blob:blob];
+    if (blob) vc = [[ANSnapVC alloc] initWithSnap:snap blob:blob session:self.session];
     else vc = [[ANSnapVC alloc] initWithSnap:snap session:self.session];
     [self.navigationController pushViewController:vc animated:YES];
 }
