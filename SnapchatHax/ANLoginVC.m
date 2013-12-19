@@ -22,6 +22,13 @@
     return self;
 }
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
+    username.text = [defaults objectForKey:@"username"] ?: @"";
+    password.text = [defaults objectForKey:@"password"] ?: @"";
+}
+
 - (IBAction)loginPressed:(id)sender {
     [button setEnabled:NO];
     SCAPILogin * login = [[SCAPILogin alloc] init];
@@ -45,6 +52,11 @@
     [button setEnabled:YES];
     ANSnapsVC * snaps = [[ANSnapsVC alloc] initWithSession:session];
     [self.navigationController pushViewController:snaps animated:YES];
+    
+    NSUserDefaults * defs = [NSUserDefaults standardUserDefaults];
+    [defs setObject:username.text forKey:@"username"];
+    [defs setObject:password.text forKey:@"password"];
+    [defs synchronize];
 }
 
 @end
