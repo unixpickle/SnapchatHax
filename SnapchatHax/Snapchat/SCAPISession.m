@@ -102,10 +102,12 @@
     return [SCFetcher fetcherStartedForRequest:req callback:^(NSError * error, id result) {
         if (error) return callback(error);
         NSDictionary * dict = result;
-        if (dict[@"update_response"]) {
-            dict = dict[@"update_response"];
+        if (dict[@"updates_response"]) {
+            dict = dict[@"updates_response"];
             self.snaps = [self.class parseSnaps:dict[@"snaps"]];
             self.authToken = dict[@"auth_token"];
+        } else if (dict[@"snaps"]) {
+            self.snaps = [self.class parseSnaps:dict[@"snaps"]];
         }
         callback(nil);
     }];
