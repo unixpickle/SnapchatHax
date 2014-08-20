@@ -1,3 +1,7 @@
+# Note
+
+This project is no longer under development. Snapchat continually changes their protocol and API secret so that people like me can't mess with them, and I have no intention of keeping up with them.
+
 # Purpose
 
 Quick, we don't want her to know that we saved this pic, what shall we do? SnapchatHax to the rescue! The purpose of this project is twofold:
