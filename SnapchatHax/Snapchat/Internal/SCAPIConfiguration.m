@@ -21,7 +21,7 @@ static NSString * hexHash(NSData * input);
              @"secret": @"iEk21fuwZApXlz93750dmW22pw389dPwOk",
              @"static_token": @"m198sOkJEn37DjqZ32lpRu76xmw288xSQ9",
              @"url": @"https://feelinsonice-hrd.appspot.com",
-             @"user_agent": @"Snaphax 4.0.1 (iPad; iPhone OS 6.0; en_US)"};
+             @"user_agent": @"Snapchat/8.1.1 (iPad; iPhone OS 6.0; en_US; gzip)"};
 }
 
 + (SCAPIConfiguration *)defaultAPIConfiguration {
