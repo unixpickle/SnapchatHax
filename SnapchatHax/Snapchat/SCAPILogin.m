@@ -27,7 +27,7 @@
     NSDictionary * post = @{@"username": self.username,
                             @"password": self.password};
     SCAPIRequest * req = [[SCAPIRequest alloc] initWithConfiguration:self.configuration
-                                                                path:@"/bq/login"
+                                                                path:@"/ph/login"
                                                                token:self.configuration.staticToken
                                                           dictionary:post];
     connection = [NSURLConnection connectionWithRequest:req delegate:self];
