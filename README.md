@@ -1,6 +1,6 @@
 # Note
 
-This project is no longer under development. Snapchat continually changes their protocol and API secret so that people like me can't mess with them, and I have no intention of keeping up with them.
+While I am no longer actively developing this project, others have stepped in to fix it along the way. I have heard that it works as of January 6, 2015.
 
 # Purpose
 
