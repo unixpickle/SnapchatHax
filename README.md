@@ -4,7 +4,7 @@ While I am no longer actively developing this project, others have stepped in to
 
 # Purpose
 
-Quick, we don't want her to know that we saved this pic, what shall we do? SnapchatHax to the rescue! The purpose of this project is twofold:
+Quick, we don't want them to know that we saved this pic, what shall we do? SnapchatHax to the rescue! The purpose of this project is twofold:
 
 * to provide an easy-to-use Objective-C platform to interface with the Snapchat backend.
 * to provide users with an easy-to-use iOS application for the purpose of bypassing Snapchat's inherent limitations.
